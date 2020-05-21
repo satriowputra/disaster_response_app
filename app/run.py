@@ -43,7 +43,19 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
-    # create visuals
+    x = ['Related', 'Not Related']
+    y = df['related'].value_counts()
+    
+    label1 = list(map(str.capitalize ,df.drop(['id','message', 'original', 'genre', 'related'], axis=1).columns.tolist()))
+
+    label = []
+    for i in label1:
+        label.append(i.replace('_', ' '))
+    
+    x1 = label
+    y1 = df.drop('id', axis=1).sample(1000).mean()
+    
+     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
         {
@@ -61,6 +73,48 @@ def index():
                 },
                 'xaxis': {
                     'title': "Genre"
+                }
+            }
+		},
+		{
+            
+             'data': [
+                Bar(
+                    x=x,
+                    y=y
+                )
+            ],
+
+            'layout': {
+                'title': 'Count of Related and Not Related Messages',
+                'yaxis': {
+                    'title': "Count"
+                }
+            }
+        },
+		{
+            
+             'data': [
+                Bar(
+                    x=x1,
+                    y=y1
+                )
+            ],
+
+            'layout': {
+                'title': 'Proportion of Message Classification',
+                'autosize': 'false',
+                'height': '600',
+                'yaxis': {
+                    'title': "Proportion"
+                },
+                'margin': {
+
+                            'b': '200'
+
+                          },
+                'xaxis': {
+                    'title': "Classification"
                 }
             }
         }
