@@ -22,6 +22,16 @@ from sklearn.multioutput import MultiOutputClassifier
 
 
 def load_data(database_filepath):
+    """Loading data from SQLite database
+    
+    Args:
+    database_filepath: path to database that will be loaded.
+    
+    Returns:
+    X: Feature variables
+    Y: Target variables
+    category_names: labels for feature variables
+    """
     # read in file
     filepath = 'sqlite:///' + database_filepath
     engine = db.create_engine(filepath)
@@ -36,6 +46,14 @@ def load_data(database_filepath):
     return X, Y, category_names
 
 def tokenize(text):
+    """Processing text like splitting and lemmatizing.
+    
+    Args:
+    text: input document.
+    
+    Returns:
+    Clean tokens
+    """
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]'\
                 '|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
@@ -55,6 +73,14 @@ def tokenize(text):
 
 
 def build_model():
+    """Creating NLP model.
+    
+    Args:
+    None
+    
+    Returns:
+    NLP pipeline model.
+    """
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                          ('tfidf', TfidfTransformer()),
                          ('clf', MultiOutputClassifier(RandomForestClassifier()))])
