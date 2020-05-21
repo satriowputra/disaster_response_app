@@ -17,13 +17,13 @@ By doing this project, I want to apply my skill in Data Engineering to create da
 ## File Descriptions <a name="files"></a>
 
 There are 2 python script provided here which are:
-	1. ETL Pipeline Script, process_data.py. This will load and clean the datasets listed below and prepared the dataset to be used in machine learning algorithm. The script then creates SQLite database as output.	
-	2. Machine Learning Pipeline Script, train_classifier.py. This script will load data, train NLP model, pick the best parameters (using gridsearch), print the results, and save it for you. You can directly use the model for you application.
+	1) ETL Pipeline Script, process_data.py. This will load and clean the datasets listed below and prepared the dataset to be used in machine learning algorithm. The script then creates SQLite database as output.	
+	2) Machine Learning Pipeline Script, train_classifier.py. This script will load data, train NLP model, pick the best parameters (using gridsearch), print the results, and save it for you. You can directly use the model for you application.
 
 In this project, dataset is provided by Figure-Eight. The dataset included are:
-	1. message.csv
+	1) message.csv
 		In this file, there are 30000 messages extracted from twitter during several disaster such as an earthquake in Chile in 2010, floods in Pakistan in 2010, and other disasters.
-	2. categories.csv
+	2) categories.csv
 		This file contains 36 classification of messages inside dataset above.
 
 ## Results<a name="results"></a>
