@@ -33,8 +33,6 @@ In this project, dataset is provided by Figure-Eight. The dataset included are:
 
 ## Results<a name="results"></a>
 
-The main findings of the code can be found at the post available [here].
-
-If you want to run web app locally, run app.py and go to http://0.0.0.0 to see the app.
+Please run this web app locally, run app.py and go to http://0.0.0.0 to see the app.
 
 
